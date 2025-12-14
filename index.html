@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Branding Masterclass</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@400;600;700;800&family=Varela+Round&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --color-bg: #000000;
+      --color-text: #FFFFFF;
+      --color-accent-1: #8ABD4C;
+      /* Lightest Green */
+      --color-accent-2: #708A46;
+      --color-accent-3: #6B8E23;
+      --color-accent-4: #556B2F;
+      /* Darkest Green */
+      --color-container-bg: #4a6828;
+      /* Approx soft green for container based on image */
+
+      --font-primary: 'Montserrat', sans-serif;
+      --font-secondary: 'Varela Round', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-primary);
+      overflow-x: hidden;
+    }
+
+    /* Top Strip */
+    .top-strip {
+      background-color: var(--color-accent-1);
+      color: #fff;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: var(--color-accent-3);
+      /* Matching the top part of the background in image */
+      /* In image, nav seems to sit on top of the green background or is part of it. 
+               Let's make it sit above the main container or be the top part of the page container. */
+    }
+
+    /* Adjusting layout structure to match image: 
+           There is a top green header area, and then the rounded card starts below or within it.
+           Looking closely: The "Personal Branding Masterclass" text is ON layout, 
+           and the rounded card is BELOW the header text?
+           Actually, looks like:
+           1. Top Strip "Create Engage Grow"
+           2. Header Area (Dark Green) with "Personal Branding Masterclass" & "DEMAND"
+           3. Main Content (Rounded Card) sits inside a black void or is the main body.
+           Wait, user says: "Global ... Background: Solid Black".
+           The image shows a large green container with rounded corners.
+           Let's imply a container wrapper.
+        */
+
+    .nav-container {
+      width: 100%;
+      max-width: 1200px;
+      /* Constraint */
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 400;
+      /* Lighter font */
+      letter-spacing: 0.5px;
+    }
+
+    .nav-logo span {
+      display: block;
+      font-weight: 700;
+    }
+
+    .btn-demand {
+      background: transparent;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Main Hero Section */
+    .hero-section {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #5c7c2d 0%, #3a5218 100%);
+      /* Gradient approximation */
+      background-color: var(--color-accent-4);
+      border-radius: 40px;
+      padding: 40px 20px;
+      width: 100%;
+      max-width: 600px;
+      /* Mobile default mostly */
+      position: relative;
+      overflow: hidden;
+      /* For decorative elements */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Inner Banner */
+    .inner-banner {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 10px 20px;
+      text-align: center;
+      display: inline-block;
+      margin-bottom: 20px;
+      width: 100%;
+      /* Mobile full width often */
+      backdrop-filter: blur(5px);
+    }
+
+    .inner-banner h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+      color: #fff;
+    }
+
+    /* Headline */
+    .headline {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .headline .highlight-white {
+      color: #fff;
+    }
+
+    /* Mentor Area */
+    .mentor-area {
+      position: relative;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .mentor-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .stats-badge {
+      background-color: #f0f7e6;
+      color: #4a6828;
+      padding: 10px 20px;
+      border-radius: 15px 15px 15px 0;
+      /* Weird shape? Logic from image seems rounded box */
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      position: absolute;
+      top: 20%;
+      right: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .mentor-name-tag {
+      background-color: var(--color-accent-1);
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      transform: translateY(-20px);
+      text-align: left;
+      width: 90%;
+      max-width: 300px;
+    }
+
+    .mentor-name {
+      font-weight: 800;
+      font-size: 1.2rem;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .mentor-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    /* CTA Buttons */
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .btn-cta {
+      font-family: var(--font-secondary);
+      background-color: #f0f7e6;
+      color: #3a5218;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 100%;
+      max-width: 350px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+
+    .btn-cta:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Sparkles/Stars Decoration */
+    .sparkle {
+      position: absolute;
+      color: #fff;
+      opacity: 0.8;
+      font-size: 1.5rem;
+    }
+
+    .sparkle-1 {
+      top: 10%;
+      left: 5%;
+      font-size: 2rem;
+    }
+
+    .sparkle-2 {
+      top: 15%;
+      right: 10%;
+    }
+
+    .sparkle-3 {
+      bottom: 30%;
+      right: 5%;
+    }
+
+    /* Helpers */
+    .desktop-only {
+      display: none;
+    }
+
+    /* 
+           RESPONSIVE: Desktop (Landscape/Large Screens)
+           Transform to 2-Column Layout
+        */
+    @media (min-width: 1024px) {
+      .hero-card {
+        max-width: 1200px;
+        padding: 60px;
+        display: flex;
+        flex-direction: row;
+        /* 2 Columns */
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+      }
+
+      /* Left Column: Headline, Badge, CTAs */
+      .left-col {
+        flex: 1;
+        text-align: left;
+        order: 1;
+      }
+
+      .inner-banner {
+        margin: 0 0 30px 0;
+        /* Left align */
+        text-align: left;
+        background: rgba(255, 255, 255, 0.15);
+        display: inline-block;
+        width: auto;
+        padding: 12px 30px;
+      }
+
+      .inner-banner h2 {
+        font-size: 1.4rem;
+      }
+
+      .headline {
+        text-align: left;
+        font-size: 3rem;
+        margin-bottom: 50px;
+      }
+
+      .cta-container {
+        align-items: flex-start;
+        /* Left align */
+      }
+
+      /* Right Column: Mentor */
+      .right-col {
+        flex: 1;
+        position: relative;
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mentor-area {
+        margin: 0;
+      }
+
+      .mentor-img {
+        max-width: 450px;
+        transform: scale(1.1);
+        /* Make it pop a bit */
+      }
+
+      .stats-badge {
+        top: 15%;
+        right: -20px;
+        font-size: 1.2rem;
+        padding: 15px 30px;
+      }
+
+      .mentor-name-tag {
+        margin-top: -40px;
+        position: relative;
+        z-index: 5;
+        font-size: 1.2rem;
+      }
+    }
+
+    /* --- Scroll Banner Section --- */
+    .scroll-banner-section {
+      position: relative;
+      width: 100%;
+  
+      height: 180px;
+      /* Reduced from 300px */
+      background-color: #000;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -50px;
+      /* Overlap slightly with hero or just sit below */
+      z-index: 1;
+      /* Below hero if hero has z-index? */
+    }
+
+    .banner-band {
+      position: absolute;
+      width: 200%;
+      /* Make it much wider than screen */
+      /* padding: 15px 0; */
+      padding: 5px 0;
+      background-color: rgba(138, 189, 76, 0.9);
+      /* #8ABD4C with alpha */
+      color: #fff;
+      font-family: var(--font-primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+      display: flex;
+      /* To hold repeated text spans if needed */
+      align-items: center;
+      box-shadow: 0 0 20px rgba(138, 189, 76, 0.4);
+    }
+
+    .band-1 {
+      top: 50%;
+      left: 50%;
+      /* Start centered, then rotate/translate for animation */
+      /* Note: We need to combine static centering with dynamic scrolling. 
+         Ideally, wrapper centers it, inner scrolls.
+      */
+      transform: translate(-50%, -50%) rotate(3deg);
+      width: 120vw;
+      /* Ensure it covers corners */
+      justify-content: center;
+      /* Center content initially */
+    }
+
+    .band-1 .banner-content {
+      animation: scroll-left-to-right 30s linear infinite;
+    }
+
+    .band-2 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      width: 120vw;
+      justify-content: center;
+    }
+
+    .band-2 .banner-content {
+      animation: scroll-right-to-left 30s linear infinite;
+    }
+
+    /* We need to move animation to the content inside, 
+       because the band itself must stay fixed in position to remain crossed at center.
+    */
+
+    @keyframes scroll-left-to-right {
+      0% {
+        transform: translateX(-25%);
+      }
+
+      100% {
+        transform: translateX(25%);
+      }
+
+      /* Move half of the duplicated width */
+    }
+
+    @keyframes scroll-right-to-left {
+      0% {
+        transform: translateX(25%);
+      }
+
+      100% {
+        transform: translateX(-25%);
+      }
+    }
+
+    /* --- Video Section --- */
+    .video-section {
+      padding: 50px 20px;
+      display: flex;
+      justify-content: center;
+      background-color: var(--color-bg);
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 500px;
+     
+      background-color: #fff;
+      /* White card as per screenshot hint */
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      /* padding-top: 56.25%; */
+      padding-top: 45%;
+      /* 16:9 Aspect Ratio */
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* --- Pain Points Section --- */
+    .pain-points-section {
+      padding: 80px 20px;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pain-points-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pp-headline {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+      line-height: 1.2;
+    }
+
+    .pp-headline span {
+      color: #8dc73d;
+    }
+
+    /* Grid Layout */
+    .pp-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Cards */
+    .pp-card {
+      border-radius: 30px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pp-card h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      z-index: 2;
+      margin-bottom: 10px;
+    }
+
+    .card-large-left {
+      background-color: #8dc73d;
+      min-height: 300px;
+      /* Mobile height */
+      color: #fff;
+      justify-content: space-between;
+    }
+
+    /* Placeholder for image in left card */
+    .card-large-left img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 150px;
+      height: auto;
+      opacity: 0.9;
+      /* Mask effect or styling to match reference */
+      mask-image: linear-gradient(to top, black 80%, transparent 100%);
+    }
+
+    .card-top-right {
+      background-color: #556B2F;
+      min-height: 140px;
+    }
+
+    .card-mid-right {
+      background-color: #8dc73d;
+      min-height: 140px;
+    }
+
+    .card-bottom-full {
+      background-color: #556B2F;
+      min-height: 100px;
+    }
+
+    .card-bottom-full h3 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    /* Desktop Layout */
+    @media (min-width: 1024px) {
+      .pp-grid {
+        grid-template-areas:
+          "left top-right"
+          "left mid-right"
+          "bottom bottom";
+        grid-template-columns: 1.2fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 25px;
+      }
+
+      .card-large-left {
+        grid-area: left;
+        min-height: 400px;
+      }
+
+      .card-large-left img {
+        width: 250px;
+      }
+
+      .card-top-right {
+        grid-area: top-right;
+      }
+
+      .card-mid-right {
+        grid-area: mid-right;
+      }
+
+      .card-bottom-full {
+        grid-area: bottom;
+        text-align: left;
+        /* Image implies left aligned text */
+        justify-content: center;
+      }
+
+      .pp-headline {
+        font-size: 3.5rem;
+      }
+    }
+
+    /* --- Achievements Section --- */
+    .achievements-section {
+      padding: 80px 20px;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .achievements-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ach-headline {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 60px;
+      line-height: 1.1;
+    }
+
+    .ach-headline span {
+      color: #8dc73d;
+    }
+
+    .ach-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .ach-card {
+      background-color: #8dc73d;
+      color: #fff;
+      padding: 50px 30px;
+      border-radius: 40px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
+      flex: 1;
+      /* Ensure visual consistency */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+    }
+
+    @media (min-width: 1024px) {
+      .ach-grid {
+        flex-direction: row;
+      }
+
+      .ach-card {
+        font-size: 2rem;
+        padding: 60px 40px;
+        min-height: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Strip -->
+  <div class="top-strip">
+    Create Engage Grow
+  </div>
+
+  <!-- Header / Nav Area -->
+  <!-- Note: In implementation, background color handling needs care. 
+         The top part of the page in screenshot is Green. 
+         But Global requires "Background: Solid Black".
+         The image shows the green container is effectively the hero.
+         We will keep the body black, and the nav area can be within the flow or distinct.
+         Let's put the Nav inside the main container visual flow or separate.
+         Based on "Top Banner Strip" then "Navigation Area", then "Main Headline" inside "Large Container"..
+         Actually, strictly looking at the image:
+         The top strip is 100% width.
+         The "Navigation" (Text left, Button right) sits on a dark green background.
+         The "Rounded Hero Card" sits below that? OR is the navigation part of the rounded card?
+         In the image, the "Personal Branding Masterclass" is white text on a green background.
+         The Rounded Card STARTS below the nav? Or contains it?
+         Looking at corner radius: The TOP of the image is square (the strip).
+         The "Personal Branding..." area has square corners at top?
+         Then the "Personal Branding Mastery" inner banner is inside a rounded container.
+         
+         Correction: The "Personal Branding Masterclass" line is likely just above the rounded container background, 
+         or the rounded container starts AFTER the top navigation.
+         Let's assume:
+         1. Top Strip (Full width)
+         2. Nav Bar (Full width, Green Background to match hero or transparent?) 
+            Let's make Nav Bar Green key color to blend.
+         3. Hero Card (Rounded green container) centered in black body? 
+    -->
+
+  <!-- Redefining Nav Style heavily based on this thought process -->
+  <style>
+    .nav-wrapper {
+      background-color: #556B2F;
+      /* Match hero top? */
+      background-color: transparent;
+      /* Or just let it float on black if defined */
+      padding: 10px 0;
+    }
+
+    /* Actually, looking at the crop: 
+           The text "Personal Branding Masterclass" is at the top left.
+           The "DEMAND" logo is top right.
+           This bar sits ABOVE the "Personal Branding Mastery" pill.
+           The background behind "Personal Branding Masterclass" is the same green as the top of the card?
+           Or is the card full screen?
+           "The large container holding the content should use a softer green background or border with rounded corners."
+           This implies the rounded container is INSIDE the black body.
+           So Nav might be OUTSIDE the rounded container?
+           Let's place Nav OUTSIDE, in the black area, OR make the hero card cover most of the screen.
+           The prompt says "Top Banner Strip" then "Navigation Area".
+        */
+    .nav-wrapper {
+      /* Ensuring it is visible against black if outside, or green if inside. 
+                But text is white. */
+      padding: 0 5%;
+    }
+  </style>
+
+  <div class="nav-wrapper">
+    <nav class="nav-container">
+      <div class="nav-logo">
+        Personal <br>
+        <span>Branding Masterclass</span>
+      </div>
+      <button class="btn-demand">DEMAND</button>
+    </nav>
+  </div>
+
+  <!-- Main Hero Section -->
+  <section class="hero-section">
+    <div class="hero-card">
+
+      <!-- Sparkles -->
+      <div class="sparkle sparkle-1"><i class="fa-solid fa-star"></i></div>
+      <!-- Using fa-star as proxy for 4-point star if generic, or custom shape -->
+      <!-- Using a closer match for 4-point star which is often fa-star or svg. 
+                 Let's use a simple SVG or font icon. 
+                 fa-solid fa-star is 5 points. fa-regular fa-star-four-points doesn't exist standard free.
+                 Will use CSS for sparkles or just fa-star for now.
+             -->
+      <div style="position:absolute; top:8%; left:8%; font-size:24px;">✦</div>
+      <div style="position:absolute; top:20%; right:8%; font-size:18px;">✦</div>
+      <div style="position:absolute; bottom:35%; right:50%; font-size:14px; opacity:0.6;">✦</div>
+
+      <div class="left-col">
+        <div class="inner-banner">
+          <h2>Personal Branding Mastery</h2>
+        </div>
+
+        <h1 class="headline">
+          Build a Personal Brand <br>
+          That Gets You <span class="highlight-white">Clients, <br>
+            Respect & Opportunities</span>
+        </h1>
+
+        <div class="cta-container">
+          <button class="btn-cta">
+            Course Duration <br>
+            1hr 30 min +
+          </button>
+          <button class="btn-cta">
+            Monthly <br>
+            Mentorship Session
+          </button>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <div class="stats-badge">
+          <i class="fa-solid fa-graduation-cap"></i> 565 + Enrolled
+        </div>
+
+        <div class="mentor-area">
+          <!-- Placeholder image since asset not provided -->
+          <img src="https://placehold.co/400x500/333/999?text=Nisam+VM" alt="Nisam VM" class="mentor-img">
+
+          <div class="mentor-name-tag">
+            <span class="mentor-name">Nisam VM</span>
+            <span class="mentor-title">CEO - Desgro Media <br> Demand School</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Scroll Banner Section -->
+  <section class="scroll-banner-section">
+    <div class="banner-band band-1">
+      <!-- Text repeated enough to cover flow. 
+                 Using Javascript to populate might be cleaner, 
+                 but user asked for CSS focus. We can put a few here and duplicated.
+                 For infinite scroll, we need the pattern to repeat. 
+            -->
+      <div class="banner-content">
+        Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create
+        Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow .
+        Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create
+        Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow .
+      </div>
+    </div>
+    <div class="banner-band band-2">
+      <div class="banner-content">
+        Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create
+        Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow .
+        Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create
+        Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow . Create Engage Grow .
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="video-container">
+      <iframe src="https://player.vimeo.com/video/1057601070?h=0&title=0&byline=0&portrait=0" width="640" height="360"
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section class="pain-points-section">
+    <div class="pain-points-container">
+      <h2 class="pp-headline">
+        <span>Struggling</span> With <br>
+        Any of These?
+      </h2>
+
+      <div class="pp-grid">
+        <!-- Item 1: Large Left -->
+        <div class="pp-card card-large-left">
+          <h3>Not Knowing <br> Where <br> to Start</h3>
+          <!-- Placeholder Image of Person thinking -->
+          <img src="https://placehold.co/300x400/555/FFF?text=?" alt="Thinking Person">
+        </div>
+
+        <!-- Item 2: Top Right -->
+        <div class="pp-card card-top-right">
+          <h3>Low Engagement & <br> No Community</h3>
+        </div>
+
+        <!-- Item 3: Mid Right -->
+        <div class="pp-card card-mid-right">
+          <h3>Poor Content <br> Structure</h3>
+        </div>
+
+        <!-- Item 4: Bottom Full -->
+        <div class="pp-card card-bottom-full">
+          <h3>Lack of Consistency</h3>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="achievements-section">
+    <div class="achievements-container">
+      <h2 class="ach-headline">
+        Here's What <br>
+        You'll <span>Achieve</span>
+      </h2>
+
+      <div class="ach-grid">
+        <!-- Card 1 -->
+        <div class="ach-card">
+          Build Your <br> Identity
+        </div>
+
+        <!-- Card 2 -->
+        <div class="ach-card">
+          Grow Your <br> Engagement
+        </div>
+
+        <!-- Card 3 -->
+        <div class="ach-card">
+          Become a <br> Recognised <br> Expert
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script for any interactivity if needed -->
+  <script>
+    console.log("Hero Section Loaded");
+  </script>
+</body>
+
+</html>
