@@ -377,7 +377,7 @@
     .scroll-banner-section {
       position: relative;
       width: 100%;
-  
+
       height: 180px;
       /* Reduced from 300px */
       background-color: #000;
@@ -477,15 +477,15 @@
 
     .video-container {
       width: 100%;
-      max-width: 500px;
-     
+      max-width: 700px;
+
       background-color: #fff;
       /* White card as per screenshot hint */
       border-radius: 40px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       position: relative;
-      padding-top: 50%;
+      padding-top: 56.25%;
       /* padding-top: 45%; */
       /* 16:9 Aspect Ratio */
     }
@@ -689,6 +689,93 @@
         font-size: 2rem;
         padding: 60px 40px;
         min-height: 250px;
+      }
+    }
+
+    /* --- Course Module Section --- */
+    .course-module-section {
+      padding: 80px 20px;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .module-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .module-headline {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+    }
+
+    .module-headline span {
+      color: #8dc73d;
+    }
+
+    .module-grid {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: 1fr;
+    }
+
+    .module-item {
+      background-color: #8dc73d;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .module-header {
+      padding: 25px 30px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .module-header .icon {
+      font-size: 1.5rem;
+      font-weight: 400;
+      transition: transform 0.3s ease;
+    }
+
+    .module-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+      background-color: #8dc73d;
+      padding: 0 30px;
+    }
+
+    .module-content.active {
+      padding-bottom: 30px;
+    }
+
+    .module-content p {
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .module-grid {
+        grid-template-columns: 1fr 1fr;
+        /* 2 Columns */
+        column-gap: 30px;
+        row-gap: 20px;
+      }
+
+      .module-headline {
+        font-size: 3rem;
       }
     }
   </style>
@@ -920,9 +1007,158 @@
     </div>
   </section>
 
+  </div>
+  </section>
+
+  <!-- Course Module Section -->
+  <section class="course-module-section">
+    <div class="module-container">
+      <h2 class="module-headline">Course <span>Module</span></h2>
+
+      <div class="module-grid">
+        <!-- Module 1 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 1: <br> Why Personal Branding</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Understand what personal branding really means, why it matters today, and how it can change your
+              opportunities, influence, and career.</p>
+          </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 2: <br> Building Your Brand Foundation</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Learn how to define your niche, audience, personality, and core message — the pillars that make your
+              brand
+              unique and memorable.</p>
+          </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 3: <br> Content Creation</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Master the basics of creating impactful content that reflects your identity, provides value, and connects
+              with the right people.</p>
+          </div>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 4: <br> Viral Content Creation</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Explore proven principles and techniques behind viral content — what makes people stop, engage, save, and
+              share.</p>
+          </div>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 5: <br> Content Structure</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Discover simple frameworks to organise your ideas, script your posts, and structure content that hooks
+              viewers instantly.</p>
+          </div>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 6: <br> Community Building and Engagement</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Learn how to turn followers into a loyal community through genuine interaction, trust-building, and
+              two-way
+              engagement.</p>
+          </div>
+        </div>
+
+        <!-- Module 7 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 7: <br> Establishing Industry Authority</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Position yourself as a trusted expert in your field and build long-term credibility through thought
+              leadership content.</p>
+          </div>
+        </div>
+
+        <!-- Module 8 -->
+        <div class="module-item">
+          <div class="module-header">
+            <span>Module 8: <br> The Motivation and The Consistency</span>
+            <i class="fa-solid fa-plus icon"></i>
+          </div>
+          <div class="module-content">
+            <p>Get the mindset, systems, and creative processes you need to stay consistent, avoid burnout, and keep
+              your
+              brand growing.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Script for any interactivity if needed -->
   <script>
     console.log("Hero Section Loaded");
+
+    // Accordion Functionality
+    const moduleHeaders = document.querySelectorAll('.module-header');
+
+    moduleHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('.icon');
+
+        // Close other modules if desired (optional - keeping independent for now as standard accordion often allows multiple open)
+        // If "Singular" opening is needed:
+        /*
+        document.querySelectorAll('.module-content').forEach(c => {
+           if(c !== content && c.style.maxHeight) {
+                c.style.maxHeight = null;
+                c.classList.remove('active');
+                c.previousElementSibling.querySelector('.icon').classList.remove('fa-minus');
+                c.previousElementSibling.querySelector('.icon').classList.add('fa-plus');
+           }
+        });
+        */
+
+        if (content.style.maxHeight) {
+          // Collapse
+          content.style.maxHeight = null;
+          content.classList.remove('active');
+          icon.classList.remove('fa-minus');
+          icon.classList.add('fa-plus');
+        } else {
+          // Expand
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.classList.add('active');
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-minus');
+        }
+      });
+    });
   </script>
 </body>
 
